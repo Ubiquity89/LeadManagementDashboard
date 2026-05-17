@@ -5,12 +5,11 @@ import { protect } from "./middleware/authMiddleware";
 import leadRoutes from "./routes/leadRoutes";
 
 const app = express();
-
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://lead-management-dashboard-9ovewftop-ubiquity89s-projects.vercel.app/",
+      "https://lead-management-dashboard-rho-ten.vercel.app",
     ],
     credentials: true,
   })
