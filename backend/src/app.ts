@@ -6,7 +6,15 @@ import leadRoutes from "./routes/leadRoutes";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://lead-management-dashboard-9ovewftop-ubiquity89s-projects.vercel.app/",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
