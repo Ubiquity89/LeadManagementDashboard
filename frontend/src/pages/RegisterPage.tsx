@@ -129,7 +129,7 @@ function RegisterPage() {
         type="submit"
         className="w-full bg-black hover:bg-gray-800 transition text-white py-3 rounded-xl font-semibold"
       >
-        Login
+        Register
       </button>
     </form>
 
