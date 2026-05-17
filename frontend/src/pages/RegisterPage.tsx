@@ -58,94 +58,93 @@ function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 flex items-center justify-center px-4">
-  <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8">
-    <div className="text-center mb-8">
-      <h1 className="text-4xl font-bold text-gray-900">
-        Smart Leads
-      </h1>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-2">
+          Create Account
+        </h1>
 
-      <p className="text-gray-500 mt-2">
-        Manage and track your leads easily
-      </p>
+        <p className="text-center text-gray-500 mb-6">
+          Smart Leads Dashboard
+        </p>
+
+        {error && (
+          <div className="bg-red-100 text-red-500 p-3 rounded mb-4">
+            {error}
+          </div>
+        )}
+
+        <form
+          onSubmit={handleRegister}
+          className="space-y-4"
+        >
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full border p-3 rounded-lg"
+            value={name}
+            onChange={(e) =>
+              setName(e.target.value)
+            }
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full border p-3 rounded-lg"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full border p-3 rounded-lg"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+          />
+
+          <select
+            className="w-full border p-3 rounded-lg"
+            value={role}
+            onChange={(e) =>
+              setRole(e.target.value)
+            }
+          >
+            <option value="sales">
+              Sales User
+            </option>
+
+            <option value="admin">
+              Admin
+            </option>
+          </select>
+
+          <button
+            disabled={loading}
+            className="w-full bg-black text-white py-3 rounded-lg"
+          >
+            {loading
+              ? "Creating..."
+              : "Register"}
+          </button>
+        </form>
+
+        <p className="text-center text-sm mt-6">
+          Already have an account?{" "}
+          <Link
+            to="/"
+            className="font-semibold"
+          >
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
-
-    <form
-      onSubmit={handleRegister}
-      className="space-y-5"
-    >
-      <div>
-        <label className="block text-sm font-medium mb-2">
-          Name
-        </label>
-
-        <input
-          type="text"
-          placeholder="Enter your name"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
-          value={name}
-          onChange={(e) =>
-            setName(e.target.value)
-          }
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-2">
-          Email
-        </label>
-
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
-          value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-2">
-          Password
-        </label>
-
-        <input
-          type="password"
-          placeholder="Enter your password"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
-          value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
-          required
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="w-full bg-black hover:bg-gray-800 transition text-white py-3 rounded-xl font-semibold"
-      >
-        Register
-      </button>
-    </form>
-
-    <p className="text-center text-gray-500 mt-6">
-      Don’t have an account?
-      <span
-        onClick={() =>
-          navigate("/register")
-        }
-        className="text-black font-semibold cursor-pointer ml-1"
-      >
-        Register
-      </span>
-    </p>
-  </div>
-</div>
   );
 }
 
