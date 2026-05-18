@@ -75,11 +75,15 @@ export const getLeads = async (req: Request, res: Response) => {
 
     const total = await Lead.countDocuments(query);
 
+    // @ts-ignore
+    const userRole = req.user?.role || "sales";
+
     res.status(200).json({
       total,
       currentPage: Number(page),
       totalPages: Math.ceil(total / limit),
       leads,
+      role: userRole,
     });
   } catch (error) {
     console.log(error);

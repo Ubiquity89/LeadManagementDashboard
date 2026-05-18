@@ -80,6 +80,7 @@ function DashboardPage() {
       setTotalPages(res.data.totalPages);
 
       setRole(res.data.role);
+      console.log("ROLE:", res.data.role);
     } catch (error) {
       console.log(error);
     } finally {

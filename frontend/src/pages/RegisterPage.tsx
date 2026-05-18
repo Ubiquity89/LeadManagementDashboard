@@ -123,13 +123,27 @@ function RegisterPage() {
           }
           required
         />
+        <div>
+  <label className="block text-sm font-medium mb-2">
+    Role
+  </label>
+
+  <select
+    className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
+    value={role}
+    onChange={(e) => setRole(e.target.value)}
+  >
+    <option value="sales">Sales</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
       </div>
 
       <button
         type="submit"
         className="w-full bg-black hover:bg-gray-800 transition text-white py-3 rounded-xl font-semibold"
       >
-        Login
+        Register
       </button>
     </form>
 
@@ -137,11 +151,11 @@ function RegisterPage() {
       Don’t have an account?
       <span
         onClick={() =>
-          navigate("/register")
+          navigate("/")
         }
         className="text-black font-semibold cursor-pointer ml-1"
       >
-        Register
+        Login
       </span>
     </p>
   </div>
