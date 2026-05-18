@@ -57,81 +57,82 @@ function RegisterPage() {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-2">
-          Create Account
-        </h1>
+ return (
+  <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+    <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
 
-        <p className="text-center text-gray-500 mb-6">
-          Smart Leads Dashboard
-        </p>
+      <h1 className="text-3xl font-bold text-center mb-2">
+        Create Account
+      </h1>
 
-        {error && (
-          <div className="bg-red-100 text-red-500 p-3 rounded mb-4">
-            {error}
-          </div>
-        )}
+      <p className="text-center text-gray-500 mb-6">
+        Smart Leads Dashboard
+      </p>
 
-        <form
-          onSubmit={handleRegister}
-          className="space-y-4"
-        >
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full border p-3 rounded-lg"
-            value={name}
-            onChange={(e) =>
-              setName(e.target.value)
-            }
-          />
+      {error && (
+        <div className="bg-red-100 text-red-500 p-3 rounded mb-4">
+          {error}
+        </div>
+      )}
 
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full border p-3 rounded-lg"
-            value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
-          />
+      <form onSubmit={handleRegister} className="space-y-4">
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="w-full border p-3 rounded-lg"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          className="w-full border p-3 rounded-lg"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
         <input
           type="password"
-          placeholder="Enter your password"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
+          placeholder="Password"
+          className="w-full border p-3 rounded-lg"
           value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
-          required
+          onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
 
-      <button
-        type="submit"
-        className="w-full bg-black hover:bg-gray-800 transition text-white py-3 rounded-xl font-semibold"
-      >
-        Login
-      </button>
-    </form>
+        {/* Role Dropdown */}
+        <select
+          className="w-full border p-3 rounded-lg"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+        >
+          <option value="sales">Sales</option>
+          <option value="admin">Admin</option>
+        </select>
 
-    <p className="text-center text-gray-500 mt-6">
-      Don’t have an account?
-      <span
-        onClick={() =>
-          navigate("/register")
-        }
-        className="text-black font-semibold cursor-pointer ml-1"
-      >
-        Register
-      </span>
-    </p>
+        <button
+          type="submit"
+          className="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-xl font-semibold"
+        >
+          Register
+        </button>
+
+      </form>
+
+      <p className="text-center text-gray-500 mt-6">
+        Already have an account?
+        <span
+          onClick={() => navigate("/")}
+          className="text-black font-semibold cursor-pointer ml-1"
+        >
+          Login
+        </span>
+      </p>
+
+    </div>
   </div>
-</div>
-  );
+);
 }
 
 export default RegisterPage;
