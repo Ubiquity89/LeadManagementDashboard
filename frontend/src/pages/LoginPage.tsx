@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ function LoginPage() {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${import.meta.env.VITE_API_URL}/api/auth/login`,
         {
           email,
           password,
@@ -105,12 +105,17 @@ function LoginPage() {
           required
         />
       </div>
+      {error && (
+  <p className="text-red-500 text-sm">
+    {error}
+  </p>
+)}
 
       <button
         type="submit"
         className="w-full bg-black hover:bg-gray-800 transition text-white py-3 rounded-xl font-semibold"
       >
-        Login
+        {loading ? "Logging in..." : "Login"}
       </button>
     </form>
 

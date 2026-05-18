@@ -5,8 +5,12 @@ import { protect } from "./middleware/authMiddleware";
 import leadRoutes from "./routes/leadRoutes";
 
 const app = express();
-
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
